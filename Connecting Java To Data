@@ -1,0 +1,277 @@
+import java.util.*;
+
+public class Main {
+
+    public static void pause() {
+        try {
+            Thread.sleep(2000);
+        } catch(Exception e) {
+        }
+    }
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        List<String> candidateList = new ArrayList<>();
+        Set<String> skillSet = new HashSet<>();
+        Map<Integer, String> candidateMap = new HashMap<>();
+
+        System.out.println("=========================================");
+        System.out.println(" AI HIRING PLATFORM SIMULATOR ");
+        System.out.println(" JAVA + JDBC + SQL + ORACLE ");
+        System.out.println("=========================================");
+
+        pause();
+
+        System.out.println("\nSTEP 1 : CANDIDATE REGISTRATION");
+        System.out.println("Candidates are entering data...");
+        pause();
+
+        System.out.print("\nHow many candidates? : ");
+        int n = sc.nextInt();
+        sc.nextLine();
+
+        for(int i=1;i<=n;i++) {
+
+            System.out.println("\nCandidate " + i);
+
+            System.out.print("Enter Candidate ID : ");
+            int id = sc.nextInt();
+            sc.nextLine();
+
+            System.out.print("Enter Candidate Name : ");
+            String name = sc.nextLine();
+
+            System.out.print("Enter Skill : ");
+            String skill = sc.nextLine();
+
+            candidateList.add(name);
+            skillSet.add(skill);
+            candidateMap.put(id,name);
+        }
+
+        System.out.println("\n=========================================");
+        System.out.println(" ORACLE DATABASE ");
+        System.out.println("=========================================");
+
+        pause();
+
+        System.out.println("\nStoring candidate records...");
+        pause();
+
+        System.out.println("Record Insert Successful");
+
+        pause();
+
+        System.out.println("\nSample SQL Generated");
+
+        System.out.println(
+                "\nINSERT INTO CANDIDATE VALUES(...);"
+        );
+
+        pause();
+
+        System.out.println("\nAll candidate records stored in");
+        System.out.println("ORACLE DATABASE (SIMULATION)");
+
+        pause();
+
+        System.out.println("\n=========================================");
+        System.out.println(" RECRUITER SEARCH ");
+        System.out.println("=========================================");
+
+        System.out.print("\nEnter Candidate ID to Search : ");
+
+        int searchId = sc.nextInt();
+
+        pause();
+
+        System.out.println("\nSTEP 2 : JAVA APPLICATION");
+        System.out.println("Request received from recruiter.");
+
+        pause();
+
+        System.out.println("\nSTEP 3 : SQL QUERY GENERATED");
+
+        System.out.println(
+                "SELECT * FROM CANDIDATE WHERE ID = "
+                + searchId + ";"
+        );
+
+        pause();
+
+        System.out.println("\nSTEP 4 : LOAD JDBC DRIVER");
+
+        System.out.println(
+                "Class.forName("
+                + "\"oracle.jdbc.driver.OracleDriver\""
+                + ");"
+        );
+
+        pause();
+
+        System.out.println("\nOracle JDBC Driver Loaded");
+
+        pause();
+
+        System.out.println("\nSTEP 5 : ESTABLISH CONNECTION");
+
+        System.out.println(
+                "DriverManager.getConnection("
+        );
+        System.out.println(
+                "\"jdbc:oracle:thin:@localhost:1521:XE\","
+        );
+        System.out.println(
+                "\"system\","
+        );
+        System.out.println(
+                "\"password\""
+        );
+        System.out.println(");");
+
+        pause();
+
+        System.out.println("\nConnection Established Successfully");
+
+        pause();
+
+        System.out.println("\nSTEP 6 : SEND SQL TO ORACLE");
+
+        pause();
+
+        System.out.println(
+                "Oracle Database Processing Request..."
+        );
+
+        pause();
+
+        System.out.println(
+                "\nSTEP 7 : QUERY EXECUTED SUCCESSFULLY"
+        );
+
+        pause();
+
+        System.out.println(
+                "\nSTEP 8 : RESULTSET CREATED"
+        );
+
+        System.out.println(
+                "ResultSet rs = executeQuery(...);"
+        );
+
+        pause();
+
+        System.out.println(
+                "\nCandidate data returned from Oracle"
+        );
+
+        pause();
+
+        System.out.println(
+                "\nSTEP 9 : DATA MOVED INTO COLLECTIONS"
+        );
+
+        pause();
+
+        System.out.println(
+                "\nLIST --> Ordered Candidate Names"
+        );
+
+        System.out.println(candidateList);
+
+        pause();
+
+        System.out.println(
+                "\nSET --> Unique Skills"
+        );
+
+        System.out.println(skillSet);
+
+        pause();
+
+        System.out.println(
+                "\nMAP --> Candidate ID -> Name"
+        );
+
+        System.out.println(candidateMap);
+
+        pause();
+
+        System.out.println(
+                "\nSTEP 10 : DISPLAY RESULT"
+        );
+
+        if(candidateMap.containsKey(searchId)) {
+
+            System.out.println(
+                    "\nCandidate Found : "
+                    + candidateMap.get(searchId)
+            );
+        }
+        else {
+
+            System.out.println(
+                    "\nCandidate Not Found"
+            );
+        }
+
+        pause();
+
+        System.out.println("\n=========================================");
+        System.out.println(" COMPLETE FLOW ");
+        System.out.println("=========================================");
+
+        System.out.println(
+                "\nRecruiter Search"
+        );
+
+        System.out.println("      |");
+        System.out.println("      v");
+
+        System.out.println("Java Application");
+
+        System.out.println("      |");
+        System.out.println("      v");
+
+        System.out.println("SQL Query");
+
+        System.out.println("      |");
+        System.out.println("      v");
+
+        System.out.println("JDBC");
+
+        System.out.println("      |");
+        System.out.println("      v");
+
+        System.out.println("JDBC Driver");
+
+        System.out.println("      |");
+        System.out.println("      v");
+
+        System.out.println("Oracle Database");
+
+        System.out.println("      |");
+        System.out.println("      v");
+
+        System.out.println("ResultSet");
+
+        System.out.println("      |");
+        System.out.println("      v");
+
+        System.out.println("List / Set / Map");
+
+        System.out.println("      |");
+        System.out.println("      v");
+
+        System.out.println("Recruiter Dashboard");
+
+        System.out.println(
+                "\nSimulation Complete!"
+        );
+
+        sc.close();
+    }
+}
+
